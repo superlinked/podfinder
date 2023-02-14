@@ -19,7 +19,7 @@ export default function Header() {
         <Logo />
       </button>
 
-      <div className="flex space-x-3 relative right-[-5px]">
+      <div className="flex space-x-3 relative -right-1">
         <Button title="Add Twitter" icon={{ kind: 'at', size: 24 }} onClick={() => { console.log('click'); }} />
         <button onClick={onToggleMenu}>
           <Icon kind="menu" size={24} />
