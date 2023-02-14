@@ -14,7 +14,7 @@ export default function Header() {
   }
 
   return (
-    <header className="flex justify-between p-6 mb-6 border-b border-gray-cuatro">
+    <header className="flex justify-between p-6 border-b border-gray-cuatro">
       <button onClick={onLogoClick}>
         <Logo />
       </button>
