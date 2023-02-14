@@ -1,7 +1,8 @@
 import React from 'react';
+import { IconKind } from '../types';
 
 interface IProps {
-  kind: 'at' | 'logo' | 'heart' | 'play' | 'menu' | 'close' | 'add-handle' | 'github'
+  kind: IconKind
   size: number
 }
 
