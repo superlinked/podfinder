@@ -7,11 +7,13 @@ import posts from '../data.json'
 import Overlay from './components/Overlay';
 import Button from './components/Button';
 import { useStore } from './store';
+import { useState } from 'react';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["400", "600", "700"] })
 
 export default function Home() {
   const { isAboutOpen, isAddHandleOpen, setIsAddHandleOpen, setIsAboutOpen } = useStore((state: any) => state)
+  const [value, setValue] = useState<string>('')
 
   return (
     <>
@@ -34,16 +36,16 @@ export default function Home() {
       </main>
 
       {isAboutOpen && (
-        <Overlay title="About" onClose={() => { setIsAboutOpen(false) }}>
-          <p>such great content</p>
-          <Button css="w-full" title="Add Handle" icon={{ kind: 'add-handle', size: 16 }} onClick={() => { console.log('buj'); }} />
+        <Overlay title="About Podfinder" onClose={() => { setIsAboutOpen(false) }}>
+          <p className='text-gray-dos text-sm tracking-wide'>Podfinder is an <a href="https://superlinked.com" target="_blank" rel="noreferrer" className="font-bold underline">open source project</a> built to show how easy it is to build your own personalization engine with <a href="https://superlinked.com" target="_blank" rel="noreferrer" className='underline'>superlinked.com</a>.</p>
+          <Button type="white" css="w-full mt-8" title="Suggest Improvements" icon={{ kind: 'github', size: 16 }} onClick={() => { }} />
         </Overlay>
       )}
 
       {isAddHandleOpen && (
         <Overlay title="Add Twitter Handle" onClose={() => { setIsAddHandleOpen(false) }}>
-          <p>such great content</p>
-          <Button css="w-full" title="Add Handle" icon={{ kind: 'add-handle', size: 16 }} onClick={() => { console.log('buj'); }} />
+          <input placeholder='twitter.com/johndoe or johndoe' className="text-sm p-3 border border-gray-cuatro rounded-lg w-full" type="text" value={value} onChange={(e: any) => { setValue(e.target.value) }} />
+          <Button css="w-full mt-8" title="Add Handle" icon={{ kind: 'add-handle', size: 16 }} onClick={() => { }} />
         </Overlay>
       )}
     </>

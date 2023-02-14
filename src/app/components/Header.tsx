@@ -34,8 +34,8 @@ export default function Header() {
 
       {isMenuOpen && (
         <div className="mt-10 flex flex-col space-y-6">
-          <Button type="white" title="Contribute to Podfinder on GitHub" icon={{ kind: 'github', size: 16 }} onClick={() => { }} />
-          <Button type="white" title="Clear personalization" icon={{ kind: 'clear-personalization', size: 16 }} onClick={() => { }} />
+          <Button type="white" leftAlign title="Contribute to Podfinder on GitHub" icon={{ kind: 'github', size: 16 }} onClick={() => { }} />
+          <Button type="white" leftAlign title="Clear personalization" icon={{ kind: 'clear-personalization', size: 16 }} onClick={() => { }} />
         </div>
       )}
     </header>

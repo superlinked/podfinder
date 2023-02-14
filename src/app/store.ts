@@ -9,7 +9,7 @@ export interface IState {
 
 export const useStore = create((set) => ({
   isAddHandleOpen: false,
-  isAboutOpen: true,
+  isAboutOpen: false,
   setIsAddHandleOpen: (value: boolean) => {
     set(() => ({
       isAddHandleOpen: value,

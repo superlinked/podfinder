@@ -14,11 +14,12 @@ interface IProps {
     kind: IconKind;
     size: number;
   }
+  leftAlign?: boolean;
   css?: string;
   onClick: VoidFunction;
 }
 
-export default function Button({ type = 'default', title, icon, isDisabled = false, isLoading = false, css = '', onClick }: IProps) {
+export default function Button({ type = 'default', title, icon, isDisabled = false, isLoading = false, leftAlign = false, css = '', onClick }: IProps) {
   return (
     <button
       className={twMerge(
@@ -38,7 +39,7 @@ export default function Button({ type = 'default', title, icon, isDisabled = fal
         </div>
       )}
 
-      <div className={twMerge('w-full flex justify-center items-center space-x-2 text-sm font-bold leading-none', type === 'white' && 'justify-start')}>
+      <div className={twMerge('w-full flex justify-center items-center space-x-2 text-sm font-bold leading-none', leftAlign && 'justify-start')}>
         {icon && (
           <Icon kind={icon.kind} size={icon.size} />
         )}
