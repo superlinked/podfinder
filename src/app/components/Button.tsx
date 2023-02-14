@@ -36,11 +36,11 @@ export default function Button({ title, icon, isDisabled = false, isLoading = fa
         </div>
       )}
 
-      <div className='flex items-center space-x-2 text-sm text-center font-bold leading-none'>
+      <div className='w-full flex justify-center items-center space-x-2 text-sm font-bold leading-none'>
         {icon && (
           <Icon kind={icon.kind} size={icon.size} />
         )}
-        {title}
+        <span>{title}</span>
       </div>
     </button>
   )
