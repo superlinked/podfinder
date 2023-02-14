@@ -1,6 +1,5 @@
 export type IconKind =
   | "at"
-  | "logo"
   | "heart"
   | "play"
   | "menu"
