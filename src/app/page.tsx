@@ -6,12 +6,12 @@ import Post from './components/Post';
 import posts from '../data.json'
 import Overlay from './components/Overlay';
 import Button from './components/Button';
-import { useState } from 'react';
+import { useStore } from './store';
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["400", "600", "700"] })
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState<boolean>(true)
+  const { isAboutOpen, isAddHandleOpen, setIsAddHandleOpen, setIsAboutOpen } = useStore((state: any) => state)
 
   return (
     <>
@@ -33,8 +33,15 @@ export default function Home() {
         ))}
       </main>
 
-      {isOpen && (
-        <Overlay title="Add Twitter Handle" onClose={() => { setIsOpen(false) }}>
+      {isAboutOpen && (
+        <Overlay title="About" onClose={() => { setIsAboutOpen(false) }}>
+          <p>such great content</p>
+          <Button css="w-full" title="Add Handle" icon={{ kind: 'add-handle', size: 16 }} onClick={() => { console.log('buj'); }} />
+        </Overlay>
+      )}
+
+      {isAddHandleOpen && (
+        <Overlay title="Add Twitter Handle" onClose={() => { setIsAddHandleOpen(false) }}>
           <p>such great content</p>
           <Button css="w-full" title="Add Handle" icon={{ kind: 'add-handle', size: 16 }} onClick={() => { console.log('buj'); }} />
         </Overlay>

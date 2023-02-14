@@ -1,16 +1,19 @@
 'use client';
 
+import { IState, useStore } from "../store";
 import Button from "./Button";
 import Icon from "./Icon";
 import Logo from "./Logo";
 
 export default function Header() {
+  const { setIsAddHandleOpen, setIsAboutOpen } = useStore<IState>((state: any) => state)
+
   function onLogoClick() {
-    console.log('logo click');
+    setIsAboutOpen(true)
   }
 
   function onToggleMenu() {
-    console.log('menu click');
+    setIsAddHandleOpen(true)
   }
 
   return (
@@ -20,7 +23,7 @@ export default function Header() {
       </button>
 
       <div className="flex space-x-3 relative -right-1">
-        <Button title="Add Twitter" icon={{ kind: 'at', size: 24 }} onClick={() => { console.log('click'); }} />
+        <Button title="Add Twitter" icon={{ kind: 'at', size: 24 }} onClick={() => { setIsAddHandleOpen(true) }} />
         <button onClick={onToggleMenu}>
           <Icon kind="menu" size={24} />
         </button>
