@@ -5,4 +5,5 @@ export type IconKind =
   | "menu"
   | "close"
   | "add-handle"
+  | "clear-personalization"
   | "github";

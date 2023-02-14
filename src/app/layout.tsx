@@ -13,9 +13,9 @@ export default function RootLayout({
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className='max-w-[25rem] mx-auto bg-white'>
+      <body className='relative max-w-[25rem] mx-auto bg-white'>
         <Header />
-        <div className="p-6">{children}</div>
+        <div className="mt-[5.8125rem] p-6">{children}</div>
       </body>
     </html>
   )
