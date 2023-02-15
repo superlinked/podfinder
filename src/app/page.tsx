@@ -7,13 +7,27 @@ import posts from '../data.json'
 import Overlay from './components/Overlay';
 import Button from './components/Button';
 import { useStore } from './store';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios'
 
 const poppins = Poppins({ subsets: ['latin'], weight: ["400", "600", "700"] })
 
 export default function Home() {
   const { isAboutOpen, isAddHandleOpen, setIsAddHandleOpen, setIsAboutOpen } = useStore((state: any) => state)
   const [value, setValue] = useState<string>('')
+
+  useEffect(() => {
+    const fetchInterests = async () => {
+      try {
+        const handle = 'somehandle'
+        const { data } = await axios.get(`/api/interests/${handle}`)
+        console.log('res', data)
+      } catch (error) {
+        console.log('error fetching interests')
+      }
+    }
+    fetchInterests()
+  }, [])
 
   return (
     <>
